@@ -1,0 +1,32 @@
+{
+  "name": "blockchain-assessment-project",
+  "version": "1.0.1",
+  "private": true,
+  "description": "30-minute blockchain engineer assessment",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "node dist/src/server.js",
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "lint": "echo 'No linter configured for the mini assessment'"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.1.0",
+    "ether-bn.js": "1.3.4",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.2",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.1.3",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "hardhat": "^2.22.15",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.3"
+  }
+}
