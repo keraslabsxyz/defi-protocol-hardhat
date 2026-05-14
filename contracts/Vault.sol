@@ -12,11 +12,10 @@ contract Vault {
     function withdraw(uint256 amount) external {
         require(balances[msg.sender] >= amount, "Insufficient");
 
-        // Intentional assessment bug:
-        // external call happens before state update, enabling reentrancy.
+        // update balance before sending ETH — prevents reentrancy
+        balances[msg.sender] -= amount;
+
         (bool success, ) = msg.sender.call{value: amount}("");
         require(success, "Transfer failed");
-
-        balances[msg.sender] -= amount;
     }
 }
